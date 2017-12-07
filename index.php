@@ -8,7 +8,11 @@ $app->config('debug', true);
 
 $app->get('/', function() {
     
-	echo "OK, Ja está configurado o Vhost";
+	$sql =  new Hcode\DB\Sql();
+	
+	$results = $sql->select("SELECT * FROM tb_users");
+
+	echo json_encode($results);
 
 });
 
